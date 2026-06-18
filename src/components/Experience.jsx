@@ -22,7 +22,7 @@ const EXP = [
       'Coordinated a 30-student internship batch — scheduling and progress tracking.',
       'Delivered CRUD modules with REST API integrations in Agile sprints.',
     ],
-    tags:['Java','MySQL','JavaScript','REST'],
+    tags:['Java','Python', 'MySQL','JavaScript','REST','Manual Testing'],
   },
   {
     role:'AI ML Engineer Intern', co:'Rooman Technologies Pvt Ltd', short:'ROOMAN',
@@ -35,15 +35,22 @@ const EXP = [
     tags:['Python','TensorFlow','OpenAI','Streamlit'],
   },
   {
-    role:'Web Developer Intern', co:'Gramseva India Foundation', short:'GRAMSEVA',
-    period:'Nov 2023 – Jan 2024', loc:'Remote', current:false,
-    points:[
-      'Built NGO web pages with HTML, CSS, JavaScript, and PHP.',
-      'MySQL database connections for dynamic content management.',
-      'Responsive UI improving accessibility for rural outreach programs.',
-    ],
-    tags:['PHP','MySQL','HTML/CSS','JS'],
-  },
+role: 'Web Developer Intern',
+co: 'Rail Wheel Factory.',
+short: ' Rail Wheel',
+period: 'Nov 2023 – Jan 2024',
+loc: 'Remote',
+current: false,
+points: [
+'Developed responsive web applications using HTML, CSS, JavaScript, Bootstrap, and PHP.',
+'Designed and integrated REST APIs and implemented CRUD operations using .NET and Dapper.',
+'Worked with MySQL and SQL Server databases for data storage, retrieval, and management.',
+'Built user-friendly interfaces and optimized application performance across devices.',
+'Collaborated on backend development, database connectivity, and API integration to support dynamic web features.'
+],
+tags: ['HTML/CSS', 'JavaScript', 'Bootstrap', 'PHP', 'Dapper', 'REST API', 'MySQL', 'SQL Server']
+}
+
 ];
 
 export default function Experience() {

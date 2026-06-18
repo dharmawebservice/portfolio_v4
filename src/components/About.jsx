@@ -4,7 +4,7 @@ import { motion, useInView } from 'framer-motion';
 const up = (d=0) => ({ hidden:{ y:40,opacity:0 }, visible:{ y:0,opacity:1,transition:{ duration:0.8,ease:[0.16,1,0.3,1],delay:d } } });
 
 const FACTS = [
-  { n:'B.E. CS & AI',      s:'KLE Technological University · CGPA 7.66' },
+  { n:'B.E. CSE - AI',     s:'sri venkateshwara college of engineering, bangalore · CGPA 7.66' },
   { n:'Systems Engineer',  s:'Tata Consultancy Services · Apr 2026–Present' },
   { n:'3 Internships',     s:'AI/ML · Full-Stack · Web Dev' },
   { n:'50+ Students',      s:'Workshops & batch coordination' },
@@ -32,9 +32,9 @@ export default function About() {
           <motion.div {...V(up(0))}><span className="label">About</span></motion.div>
           <motion.h2 {...V(up(0.1))}
             style={{ fontFamily:'var(--fd)', fontSize:'clamp(2rem,4.5vw,3.8rem)', fontWeight:700, color:'var(--white)', lineHeight:1.0, letterSpacing:'-0.03em' }}>
-            CS &amp; AI engineer.<br />
+            CSE - AI engineer.<br />
             <span style={{ color:'var(--amber)' }}>Builder</span> by instinct.<br />
-            Hyderabad.
+            Bangalore.
           </motion.h2>
         </div>
 
@@ -42,15 +42,15 @@ export default function About() {
         <div className="about-bio-grid">
           <motion.div {...V(up(0.15))}>
             <p style={{ fontFamily:'var(--fb)', fontSize:'1.05rem', color:'var(--gray-5)', lineHeight:1.85, marginBottom:28, maxWidth:560 }}>
-              I'm a Computer Science and Artificial Intelligence graduate who genuinely loves
+              I'm a Computer Science &amp; Engineering in Artificial Intelligence graduate who genuinely loves
               the craft of building software. From the logic of a clean backend API to the feel
               of a smooth UI — I care about every layer of the stack.
             </p>
             <p style={{ fontFamily:'var(--fb)', fontSize:'1.05rem', color:'var(--gray-5)', lineHeight:1.85, marginBottom:48, maxWidth:560 }}>
               I currently work as a{' '}
               <strong style={{ color:'var(--white)', fontWeight:500 }}>Systems Engineer at TCS</strong>
-              {' '}in Hyderabad. Before TCS, I interned at three companies — AI/ML at Rooman Technologies,
-              full-stack Java at Kodnest, and web development at Gramseva Foundation.
+              {' '}in Hyderabad. Before TCS, I interned at three companies — AI/ML Intern at Rooman Technologies,
+              Full-Stack Java Developer at Kodnest, and Web Development Intern at Rail Wheel Factory.
             </p>
             <div className="values-grid">
               {VALUES.map(({ icon,t,d }, i) => (

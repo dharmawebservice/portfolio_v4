@@ -80,7 +80,7 @@ export default function Hero() {
         <div className="hero-grid">
           <motion.div variants={fadeUp(1.1)} initial="hidden" animate="visible">
             <p style={{ fontFamily:'var(--fb)', fontSize:'clamp(0.95rem,1.5vw,1.15rem)', color:'var(--gray-5)', lineHeight:1.8, maxWidth:500, marginBottom:44 }}>
-              CS &amp; AI graduate crafting scalable systems, intelligent products, and clean code.
+              CSE - AI graduate crafting scalable systems, intelligent products, and clean code.
               I build things end-to-end — from database schemas to pixel-level UI.
             </p>
             <div style={{ display:'flex', gap:14, flexWrap:'wrap' }}>

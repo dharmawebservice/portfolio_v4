@@ -6,10 +6,11 @@ const up = (d=0) => ({ hidden:{ y:40,opacity:0 }, visible:{ y:0,opacity:1,transi
 const LANGUAGES = [
   { name:'Java',       pct:88, note:'Enterprise & backend' },
   { name:'Python',     pct:85, note:'ML, scripting, Django' },
-  { name:'SQL',        pct:83, note:'PostgreSQL & MySQL' },
+  { name:'SQL',        pct:85, note:'PostgreSQL & MySQL' },
   { name:'HTML / CSS', pct:85, note:'Responsive, semantic' },
-  { name:'JavaScript', pct:76, note:'ES6+, async, DOM' },
-  { name:'PHP',        pct:70, note:'Dynamic pages, MySQL' },
+  { name:'JavaScript', pct:65, note:'ES6+, async, DOM' },
+  { name:'PHP',        pct:60, note:'Dynamic pages, MySQL' },
+  { name:'UNIX',       pct:50, note:'Shell scripting, commands, file management' },
 ];
 
 const TOOLS = [
