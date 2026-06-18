@@ -28,25 +28,17 @@ function ProjectRow({ p, i }) {
       initial={{ opacity:0, y:40 }}
       animate={{ opacity:1, y:0 }}
       exit={{ opacity:0, y:20, scale:0.97 }}
-      transition={{
-        duration:0.5,
-        ease:[0.16,1,0.3,1],
-        delay:i*0.06
-      }}
+      transition={{ duration:0.5, ease:[0.16,1,0.3,1], delay:i*0.06 }}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       style={{
         borderTop:`1px solid ${hov ? p.color+'55' : 'var(--gray-3)'}`,
         padding:'36px 0',
-        display:'grid',
-        gridTemplateColumns:'1fr auto',
-        gap:24,
-        alignItems:'start',
-        cursor:'default',
-        transition:'border-color 0.3s',
+        display:'grid', gridTemplateColumns:'1fr auto', gap:24,
+        alignItems:'start', cursor:'default', transition:'border-color 0.3s',
       }}
-      className="proj-row-inner"
-    >
+      className="proj-row-inner">
+
       <div>
         {/* Meta */}
         <div style={{ display:'flex', alignItems:'center', gap:14, marginBottom:14, flexWrap:'wrap' }}>
@@ -126,7 +118,7 @@ export default function Projects() {
         </div>
 
         <motion.div layout>
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="popLayout">
             {filtered.map((p, i) => <ProjectRow key={p.id} p={p} i={i} />)}
           </AnimatePresence>
         </motion.div>
