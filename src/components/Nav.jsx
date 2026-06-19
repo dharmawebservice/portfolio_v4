@@ -13,25 +13,30 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
-  // Close menu on resize above 768
   useEffect(() => {
     const fn = () => { if (window.innerWidth > 768) setOpen(false); };
     window.addEventListener('resize', fn);
     return () => window.removeEventListener('resize', fn);
   }, []);
 
-  // Active section tracker
+  // ── Active section tracker (fixed) ──
   useEffect(() => {
-    const sections = document.querySelectorAll('section[id]');
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); }),
-      { threshold: 0.35 }
-    );
-    sections.forEach(s => obs.observe(s));
-    return () => obs.disconnect();
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+
+    const getActive = () => {
+      const scrollY = window.scrollY + window.innerHeight * 0.35;
+      let current = '';
+      for (const s of sections) {
+        if (s.offsetTop <= scrollY) current = s.id;
+      }
+      setActive(current);
+    };
+
+    getActive(); // run once on mount
+    window.addEventListener('scroll', getActive, { passive: true });
+    return () => window.removeEventListener('scroll', getActive);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };

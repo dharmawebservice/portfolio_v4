@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, forwardRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 
 const up = (d=0) => ({ hidden:{ y:40,opacity:0 }, visible:{ y:0,opacity:1,transition:{ duration:0.8,ease:[0.16,1,0.3,1],delay:d } } });
@@ -18,11 +18,13 @@ const CATS = [
   { label:'Desktop',    key:'desktop' },
 ];
 
-function ProjectRow({ p, i }) {
+// forwardRef so AnimatePresence / PopChild can pass its ref through
+const ProjectRow = forwardRef(function ProjectRow({ p, i }, ref) {
   const [hov, setHov] = useState(false);
 
   return (
     <motion.div
+      ref={ref}
       layout
       initial={{ opacity:0, y:40 }}
       animate={{ opacity:1, y:0 }}
@@ -36,14 +38,18 @@ function ProjectRow({ p, i }) {
         display:'grid', gridTemplateColumns:'1fr auto', gap:24,
         alignItems:'start', cursor:'default', transition:'border-color 0.3s',
       }}
-      className="proj-row-inner">
-
+      className="proj-row-inner"
+    >
       <div>
         {/* Meta */}
         <div style={{ display:'flex', alignItems:'center', gap:14, marginBottom:14, flexWrap:'wrap' }}>
           <span style={{ fontFamily:'var(--fm)', fontSize:'0.62rem', color:'var(--gray-4)', letterSpacing:'0.12em' }}>{p.num}</span>
           <span style={{ fontFamily:'var(--fm)', fontSize:'0.62rem', color:hov?p.color:'var(--gray-5)', letterSpacing:'0.08em', transition:'color 0.3s' }}>{p.type}</span>
-          {p.featured && <span style={{ fontFamily:'var(--fm)', fontSize:'0.58rem', color:'var(--amber)', border:'1px solid rgba(255,107,0,0.35)', padding:'2px 8px', letterSpacing:'0.1em' }}>FEATURED</span>}
+          {p.featured && (
+            <span style={{ fontFamily:'var(--fm)', fontSize:'0.58rem', color:'var(--amber)', border:'1px solid rgba(255,107,0,0.35)', padding:'2px 8px', letterSpacing:'0.1em' }}>
+              FEATURED
+            </span>
+          )}
           <span style={{ fontFamily:'var(--fm)', fontSize:'0.62rem', color:'var(--gray-4)', letterSpacing:'0.08em', marginLeft:'auto' }}>{p.year}</span>
         </div>
 
@@ -69,12 +75,20 @@ function ProjectRow({ p, i }) {
 
       {/* Links */}
       <div style={{ display:'flex', flexDirection:'column', gap:10, alignItems:'flex-end', paddingTop:40, flexShrink:0 }}>
-        {p.live && <a href={p.live} style={{ fontFamily:'var(--fm)', fontSize:'0.66rem', color:hov?p.color:'var(--gray-5)', letterSpacing:'0.1em', transition:'color 0.3s' }}>Live ↗</a>}
-        <a href={p.github} style={{ fontFamily:'var(--fm)', fontSize:'0.66rem', color:hov?'var(--white)':'var(--gray-5)', letterSpacing:'0.1em', transition:'color 0.3s' }}>Code ↗</a>
+        {p.live && (
+          <a href={p.live} target="_blank" rel="noopener noreferrer"
+            style={{ fontFamily:'var(--fm)', fontSize:'0.66rem', color:hov?p.color:'var(--gray-5)', letterSpacing:'0.1em', transition:'color 0.3s' }}>
+            Live &#x2197;
+          </a>
+        )}
+        <a href={p.github} target="_blank" rel="noopener noreferrer"
+          style={{ fontFamily:'var(--fm)', fontSize:'0.66rem', color:hov?'var(--white)':'var(--gray-5)', letterSpacing:'0.1em', transition:'color 0.3s' }}>
+          Code &#x2197;
+        </a>
       </div>
     </motion.div>
   );
-}
+});
 
 export default function Projects() {
   const ref    = useRef(null);

@@ -1,6 +1,12 @@
 const go = id => document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior:'smooth' });
 const NAV = ['About','Skills','Experience','Projects','Certifications','Contact'];
 
+const SOCIAL = [
+  { label:'Email',    href:'mailto:dharmu17reddy@gmail.com' },
+  { label:'LinkedIn', href:'https://www.linkedin.com/in/dharmendra-reddy-m-s-8289211b1/' },
+  { label:'GitHub',   href:'https://github.com/dharmendra1702' },
+];
+
 export default function Footer() {
   return (
     <footer style={{ background:'#000', borderTop:'1px solid var(--gray-3)', padding:'64px 0 36px' }}>
@@ -14,12 +20,14 @@ export default function Footer() {
               Systems Engineer &amp; Full-Stack Developer. Building scalable software and intelligent systems.
             </p>
             <div style={{ display:'flex', gap:20, flexWrap:'wrap' }}>
-              {['Email','LinkedIn','GitHub'].map(l => (
-                <a key={l} href="#"
+              {SOCIAL.map(({ label, href }) => (
+                <a key={label} href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   style={{ fontFamily:'var(--fm)', fontSize:'0.7rem', color:'var(--gray-5)', letterSpacing:'0.08em', transition:'color 0.2s' }}
                   onMouseEnter={e => e.target.style.color='var(--amber)'}
                   onMouseLeave={e => e.target.style.color='var(--gray-5)'}>
-                  {l}
+                  {label}
                 </a>
               ))}
             </div>
@@ -43,13 +51,14 @@ export default function Footer() {
             <div className="label" style={{ color:'var(--gray-4)', marginBottom:20 }}>Get in Touch</div>
             <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
               {[
-                ['dharmu17reddy@gmail.com','mailto:dharmu17reddy@gmail.com'],
-                ['+91 96112 41651','tel:+919611241651'],
-                ['Hyderabad, Telangana','#'],
-                ['linkedin.com/in/dharmendra','https://linkedin.com'],
+                ['dharmu17reddy@gmail.com',                 'mailto:dharmu17reddy@gmail.com'],
+                ['+91 96112 41651',                         'tel:+919611241651'],
+                ['Hyderabad, Telangana',                    '#'],
+                ['linkedin.com/in/dharmendra-reddy-m-s',   'https://www.linkedin.com/in/dharmendra-reddy-m-s-8289211b1/'],
               ].map(([val, href]) => (
                 <a key={val} href={href}
-                  target={href.startsWith('http')?'_blank':undefined}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   style={{ fontFamily:'var(--fb)', fontSize:'0.845rem', color:'var(--gray-5)', transition:'color 0.2s' }}
                   onMouseEnter={e => e.target.style.color='var(--amber)'}
                   onMouseLeave={e => e.target.style.color='var(--gray-5)'}>
